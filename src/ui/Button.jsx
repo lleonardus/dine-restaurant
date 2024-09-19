@@ -1,5 +1,3 @@
-// 1651
-
 export function Button({ children, theme, to, disabled }) {
   const base = `relative z-[9999] inline-block py-[18px] text-center 
                 text-heading-sm uppercase outline outline-1 transition-[color]
