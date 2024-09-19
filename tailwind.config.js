@@ -34,6 +34,12 @@ export default {
         { fontWeight: "300", lineHeight: "80px", letterSpacing: "-1px" },
       ],
     },
+    extend: {
+      screens: {
+        tablet: "768px",
+        desktop: "1440px",
+      },
+    },
   },
   plugins: [],
 };
