@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Button({ children, theme, to, disabled }) {
   const base = `relative z-[9999] inline-block py-[18px] text-center 
                 text-heading-sm uppercase outline outline-1 transition-[color]
@@ -14,20 +16,11 @@ export function Button({ children, theme, to, disabled }) {
     light: `${base} bg-cod-gray text-white outline-cod-gray hover:outline-cod-gray`,
   };
 
-  function handleClick(e) {
-    e.preventDefault();
-    window.history.pushState(null, "", to);
-  }
-
   if (to) {
     return (
-      <a
-        href={to}
-        onClick={handleClick}
-        className={`${styles[theme]} w-[245px]`}
-      >
+      <Link to={to} className={`${styles[theme]} w-[245px]`}>
         {children}
-      </a>
+      </Link>
     );
   }
 
