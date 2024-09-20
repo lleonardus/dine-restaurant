@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { Footer } from "./Footer";
-//TODO(done) removing grid rows 560
 
 export function AppLayout() {
   return (
