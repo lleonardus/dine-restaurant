@@ -1,5 +1,6 @@
 import { Header } from "./components/Header";
 import { RestaurantOverviewSection } from "./components/RestaurantOverviewSection";
+import { MenuHighlightsSection } from "./components/MenuHighlightsSection";
 
 export function Homepage() {
   return (
@@ -7,9 +8,8 @@ export function Homepage() {
       <Header />
       <main className="relative z-[9999] bg-white">
         <RestaurantOverviewSection />
-        <section className="border border-white bg-black py-[100px]">
-          <p>another section</p>
-        </section>
+        <MenuHighlightsSection />
+        <section className="bg-white py-10"></section>
       </main>
     </div>
   );
