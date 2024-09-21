@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header>
       <div className="bg-cod-gray bg-[url('/images/homepage/hero-bg-mobile.jpg')] bg-auto bg-top bg-no-repeat pt-[220px] tablet:bg-[url('/images/homepage/hero-bg-tablet.jpg')] tablet:pt-[373px] xl:hidden"></div>
-      <div className="relative flex flex-col items-center bg-black px-6 pb-[152px] pt-3 text-white tablet:pb-[216px] xl:z-[9999] xl:items-start xl:bg-[url('/images/homepage/hero-bg-desktop.jpg')] xl:bg-contain xl:bg-right xl:bg-no-repeat xl:px-[165px] xl:pb-[198px] xl:before:absolute xl:before:left-0 xl:before:top-0 xl:before:z-[-1] xl:before:h-full xl:before:w-[545px] xl:before:bg-black xl:after:absolute xl:after:left-[545px] xl:after:top-0 xl:after:z-[-1] xl:after:h-full xl:after:w-[235px] xl:after:bg-cod-gray">
+      <div className="relative flex flex-col items-center bg-black px-6 pb-[152px] pt-3 text-white tablet:pb-[216px] xl:z-[9999] xl:items-start xl:bg-[url('/images/homepage/hero-bg-desktop.jpg')] xl:bg-contain xl:bg-right xl:bg-no-repeat xl:px-[165px] xl:pb-[198px] xl:before:absolute xl:before:left-0 xl:before:top-0 xl:before:z-[-1] xl:before:h-full xl:before:w-[545px] xl:before:bg-black xl:after:absolute xl:after:left-[545px] xl:after:top-0 xl:after:z-[-1] xl:after:h-full xl:after:w-[235px] xl:after:bg-cod-gray desktop:px-[240px] desktop:before:w-[845px] desktop:after:left-[620px] desktop:after:w-[230px]">
         <div className="xl:pt-[65px]">
           <img src="/images/logo.svg" alt="logo" />
         </div>

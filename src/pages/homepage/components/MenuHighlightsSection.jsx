@@ -1,6 +1,6 @@
 export function MenuHighlightsSection() {
   return (
-    <section className="bg-black pb-[102px] pt-[72px] text-center text-white tablet:pb-[96px] tablet:pt-[96px] xl:flex xl:justify-between xl:gap-[125px] xl:px-[165px] xl:pb-[120px] xl:pl-[165px] xl:pt-[200px] xl:text-left">
+    <section className="bg-black pb-[102px] pt-[72px] text-center text-white tablet:pb-[96px] tablet:pt-[96px] xl:flex xl:justify-between xl:gap-[125px] xl:px-[165px] xl:pb-[120px] xl:pl-[165px] xl:pt-[200px] xl:text-left desktop:px-[240px]">
       <div className="bg-[url('/images/patterns/pattern-divide.svg')] bg-top bg-no-repeat pt-[43px] tablet:pt-[46px] xl:bg-left-top">
         <h2 className="mx-auto max-w-[327px] pb-[13px] text-[32px] font-bold leading-10 tracking-[-0.4px] tablet:max-w-[445px] tablet:pb-[27px] tablet:text-[48px] tablet:leading-[64px] tablet:tracking-[-0.5px] xl:m-0 xl:max-w-[380px] xl:text-heading-lg">
           A few highlights from our menu
