@@ -2,6 +2,7 @@ import { Header } from "./components/Header";
 import { RestaurantOverviewSection } from "./components/RestaurantOverviewSection";
 import { MenuHighlightsSection } from "./components/MenuHighlightsSection";
 import { EventsAndGatheringsSection } from "./components/EventsAndGatheringsSection";
+import { BookYourTableSection } from "./components/BookYourTableSection";
 
 export function Homepage() {
   return (
@@ -11,6 +12,7 @@ export function Homepage() {
         <RestaurantOverviewSection />
         <MenuHighlightsSection />
         <EventsAndGatheringsSection />
+        <BookYourTableSection />
       </main>
     </>
   );
