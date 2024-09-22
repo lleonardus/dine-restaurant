@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="w-full bg-black px-5 py-20 text-center text-[14px] font-normal uppercase leading-7 tracking-[2px] text-white tablet:flex tablet:pl-[39px] tablet:text-left lg:pl-[165px]">
+    <footer className="w-full bg-black px-5 py-20 text-center text-[14px] font-normal uppercase leading-7 tracking-[2px] text-white tablet:flex tablet:pl-[39px] tablet:text-left lg:pl-[165px] desktop:px-[240px]">
       <div className="flex justify-center tablet:h-[40px] tablet:w-[103.42px]">
         <img src="/images/logo.svg" alt="logo" />
       </div>
