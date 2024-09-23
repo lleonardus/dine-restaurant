@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <header className="relative h-min bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat px-6 pb-[311px] pt-[56px] text-white tablet:bg-[url('/images/booking/hero-bg-tablet.jpg')] tablet:px-[165px] tablet:px-[39px] tablet:pb-[268px] xl:items-start xl:bg-[url('/images/booking/hero-bg-desktop.jpg')] xl:px-[165px] xl:pb-[154px] xl:pt-[65px] desktop:px-[240px]">
+    <header className="relative h-min bg-black bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat px-6 pb-[311px] pt-[56px] text-white tablet:bg-[url('/images/booking/hero-bg-tablet.jpg')] tablet:px-[39px] tablet:pb-[268px] xl:items-start xl:bg-[url('/images/booking/hero-bg-desktop.jpg')] xl:px-[165px] xl:pb-[154px] xl:pt-[65px] desktop:px-[240px]">
       <div className="flex justify-center tablet:block">
         <img src="/images/logo.svg" alt="logo" />
       </div>
