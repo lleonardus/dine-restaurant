@@ -1,5 +1,3 @@
-//TODO(done):trocando lg:pl-[165px] por xl:px-[165px]
-
 export function Footer() {
   return (
     <footer className="w-full bg-black px-5 py-20 text-center text-[14px] font-normal uppercase leading-7 tracking-[2px] text-white tablet:flex tablet:pl-[39px] tablet:text-left xl:px-[165px] desktop:px-[240px]">
