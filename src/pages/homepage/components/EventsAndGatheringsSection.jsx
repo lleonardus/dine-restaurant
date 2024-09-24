@@ -32,7 +32,7 @@ export function EventsAndGatheringsSection() {
     getImgDimensions(window.innerWidth),
   );
 
-  useEffect(function() {
+  useEffect(function () {
     function handleResize() {
       setImgDimensions(getImgDimensions(window.innerWidth));
     }
@@ -92,22 +92,28 @@ function ImageList({ current, imgDimensions }) {
       }}
     >
       {data.map((item, id) => {
-        return (
-          <ImageItem
-            key={id}
-            imgName={item.title.toLowerCase().replaceAll(" ", "-")}
-          />
-        );
+        return <ImageItem key={id} title={item.title} />;
       })}
     </ul>
   );
 }
 
-function ImageItem({ imgName }) {
+function ImageItem({ title }) {
+  const imgName = title.toLowerCase().replaceAll(" ", "-");
   return (
-    <li
-      className={`h-full bg-center bg-no-repeat tablet:min-w-[573px] xl:w-full bg-[url('/images/homepage/${imgName}-mobile.jpg')] tablet:bg-[url('/images/homepage/${imgName}-tablet.jpg')] xl:bg-[url('/images/homepage/${imgName}-desktop.jpg')] xl:min-w-[540px]`}
-    ></li>
+    <li className={`h-full tablet:min-w-[573px] xl:w-full xl:min-w-[540px]`}>
+      <picture>
+        <source
+          media="(min-width:1280px)"
+          srcSet={`/images/homepage/${imgName}-desktop.jpg`}
+        />
+        <source
+          media="(min-width:768px)"
+          srcSet={`/images/homepage/${imgName}-tablet.jpg`}
+        />
+        <img src={`/images/homepage/${imgName}-mobile.jpg`} alt={`${title}`} />
+      </picture>
+    </li>
   );
 }
 
