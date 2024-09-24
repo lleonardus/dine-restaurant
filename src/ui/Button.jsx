@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Button({ children, theme, to, disabled }) {
+export function Button({ children, theme, to, disabled, onClick }) {
   const base = `relative z-[9999] overflow-hidden inline-block py-[18px] text-center 
                 text-heading-sm uppercase outline outline-1 transition-[color]
                 delay-75 ease-in after:absolute after:left-[50%] after:top-0
@@ -18,7 +18,11 @@ export function Button({ children, theme, to, disabled }) {
 
   if (to) {
     return (
-      <Link to={to} className={`${styles[theme]} w-[245px]`}>
+      <Link
+        onClick={() => onClick?.()}
+        to={to}
+        className={`${styles[theme]} w-[245px]`}
+      >
         {children}
       </Link>
     );
@@ -26,6 +30,7 @@ export function Button({ children, theme, to, disabled }) {
 
   return (
     <button
+      onClick={() => onClick?.()}
       className={`${styles[theme]} w-full`}
       type="submit"
       disabled={disabled}
