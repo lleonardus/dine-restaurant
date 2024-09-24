@@ -1,4 +1,5 @@
 import { Button } from "../../../ui/Button";
+import { Logo } from "../../../ui/Logo";
 
 export function Header() {
   return (
@@ -21,9 +22,7 @@ export function Header() {
         </picture>
       </div>
       <div className="relative flex flex-col items-center bg-black px-6 pb-[152px] pt-3 text-white tablet:pb-[216px] xl:z-[9999] xl:shrink-0 xl:items-start xl:bg-cod-gray xl:pb-[198px] xl:pl-[165px] xl:pr-0 xl:before:absolute xl:before:left-0 xl:before:top-0 xl:before:-z-10 xl:before:h-full xl:before:w-[544px] xl:before:bg-black desktop:pl-[240px] desktop:before:w-[620px]">
-        <div className="h-8 w-[82.4px] *:h-full *:w-full tablet:h-10 tablet:w-[103px] xl:mt-[65px]">
-          <img src="/images/logo.svg" alt="logo" />
-        </div>
+        <Logo className="h-8 w-[82.4px] *:h-full *:w-full tablet:h-10 tablet:w-[103px] xl:mt-[65px]" />
         <div className="space-y-[21px] pb-[53px] pt-9 text-center tablet:space-y-5 tablet:pb-[52px] xl:pt-[153px] xl:text-left">
           <h1 className="mx-auto max-w-[250px] text-[32px] font-light leading-10 tracking-[-0.4px] tablet:max-w-[300px] tablet:text-[48px] tablet:leading-[64px] tablet:tracking-[-0.6px] xl:m-0 xl:max-w-[580px] xl:text-heading-xl">
             Exquisite dining since 1989
