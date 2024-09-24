@@ -1,7 +1,17 @@
+import { Button } from "../../../ui/Button";
+
 export function Hero() {
+  function scrollToForm() {
+    const form = document.getElementsByTagName("form")[0];
+    const nameField = form?.firstChild?.firstChild;
+
+    form?.scrollIntoView({ behavior: "smooth" });
+    nameField?.focus();
+  }
+
   return (
-    <header className="relative h-min bg-black bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat px-6 pb-[311px] pt-[56px] text-white tablet:bg-[url('/images/booking/hero-bg-tablet.jpg')] tablet:px-[39px] tablet:pb-[268px] xl:items-start xl:bg-[url('/images/booking/hero-bg-desktop.jpg')] xl:px-[165px] xl:pb-[154px] xl:pt-[65px] desktop:px-[240px]">
-      <div className="flex justify-center tablet:block">
+    <header className="relative flex h-min flex-col items-center bg-black bg-[url('/images/booking/hero-bg-mobile.jpg')] bg-cover bg-no-repeat px-6 pb-[311px] pt-[56px] text-white tablet:inline-block tablet:bg-[url('/images/booking/hero-bg-tablet.jpg')] tablet:px-[39px] tablet:pb-[268px] xl:items-start xl:bg-[url('/images/booking/hero-bg-desktop.jpg')] xl:px-[165px] xl:pb-[154px] xl:pt-[65px] desktop:px-[240px]">
+      <div>
         <img src="/images/logo.svg" alt="logo" />
       </div>
       <div className="space-y-[13px] pt-11 text-center tablet:space-y-3 tablet:pt-[70px] xl:space-y-[18px] xl:pt-[153px] xl:text-left">
@@ -14,6 +24,14 @@ export function Hero() {
           accommodate you.
         </p>
       </div>
+      <Button
+        theme={"dark"}
+        additionalClasses={"w-[245px] tablet:hidden mt-[19px]"}
+        type={"button"}
+        onClick={scrollToForm}
+      >
+        Reserve place
+      </Button>
     </header>
   );
 }
