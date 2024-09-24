@@ -6,6 +6,7 @@ export function Button({
   theme,
   to,
   disabled,
+  type,
   onClick,
 }) {
   const base = `relative z-[9999] overflow-hidden inline-block py-[18px] text-center 
@@ -39,7 +40,7 @@ export function Button({
     <button
       onClick={() => onClick?.()}
       className={styles[theme]}
-      type="submit"
+      type={type}
       disabled={disabled}
     >
       {children}
