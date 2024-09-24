@@ -3,3 +3,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  label {
+    @apply cursor-pointer;
+  }
+
+  input {
+    @apply w-full cursor-pointer border-b border-shuttle-gray/40 pb-[14px] pl-4 caret-beaver transition-colors focus:outline-none [&:not(.border-red)]:hover:border-shuttle-gray [&:not(.border-red)]:focus:border-shuttle-gray;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
