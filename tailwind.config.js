@@ -5,6 +5,7 @@ export default {
     colors: {
       black: "#000",
       white: "#fff",
+      red: "#B54949",
       beaver: "#9e7f66",
       "cod-gray": "#111111",
       mirage: "#17192b",
