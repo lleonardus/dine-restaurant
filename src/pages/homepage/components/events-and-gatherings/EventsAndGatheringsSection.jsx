@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Frame } from "./Frame";
 import { Gallery } from "./Gallery";
 import { ImageList } from "./ImageList";
 import { ImageItem } from "./ImageItem";
 import { SelectorList } from "./SelectorList";
 import { SelectorItem } from "./SelectorItem";
 import { Button } from "../../../../ui/Button";
-import { Frame } from "./Frame";
 
 const data = [
   {
