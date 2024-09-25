@@ -1,7 +1,7 @@
 import { Header } from "./components/Header";
 import { RestaurantOverviewSection } from "./components/RestaurantOverviewSection";
 import { MenuHighlightsSection } from "./components/MenuHighlightsSection";
-import { EventsAndGatheringsSection } from "./components/EventsAndGatheringsSection";
+import { EventsAndGatheringsSection } from "./components/events-and-gatherings/EventsAndGatheringsSection";
 import { BookYourTableSection } from "./components/BookYourTableSection";
 
 export function Homepage() {
