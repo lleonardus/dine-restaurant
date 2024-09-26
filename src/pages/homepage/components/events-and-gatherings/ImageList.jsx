@@ -29,7 +29,7 @@ export function ImageList({ children, current }) {
     <ul
       className={`h-full w-full transition-all duration-300 tablet:flex xl:block`}
       style={{
-        transform: `${window.innerWidth < 768 || window.innerWidth > 1280 ? `translateY(-${current * imgDimensions.height}px)` : `translateX(-${current * imgDimensions.width}px)`}`,
+        transform: `${window.innerWidth < 768 || window.innerWidth >= 1280 ? `translateY(-${current * imgDimensions.height}px)` : `translateX(-${current * imgDimensions.width}px)`}`,
       }}
     >
       {children}
