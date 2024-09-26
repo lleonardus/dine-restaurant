@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { isDateAvailable, isTimeAvailable } from "./utils/dateValidators";
 import { ErrorMessage } from "./ErrorMessage";
-import { Button } from "../../../../ui/Button";
-import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { PeriodSelector } from "./PeriodSelector";
+import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
+import { Button } from "../../../../ui/Button";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -29,37 +30,6 @@ export function ReservationForm() {
 
   function clearListOfErrors(list) {
     list.forEach((error) => clearErrors(error));
-  }
-
-  function isDateAvailable(date) {
-    const now = new Date();
-
-    return now.getTime() <= date.getTime();
-  }
-
-  function isTimeWithinRange(
-    startHour,
-    startMinutes,
-    endHour,
-    endMinutes,
-    date,
-  ) {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    return (
-      (hours > startHour || (hours === startHour && minutes >= startMinutes)) &&
-      (hours < endHour || (hours === endHour && minutes <= endMinutes))
-    );
-  }
-
-  function isTimeAvailable(date) {
-    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-
-    return (
-      (isWeekend && isTimeWithinRange(9, 0, 23, 30, date)) ||
-      (!isWeekend && isTimeWithinRange(9, 0, 22, 0, date))
-    );
   }
 
   async function onSubmit(formData) {
