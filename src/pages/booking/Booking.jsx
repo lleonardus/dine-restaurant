@@ -1,5 +1,5 @@
 import { Hero } from "./components/Hero";
-import { ReservationForm } from "./components/ReservationForm";
+import { ReservationForm } from "./components/reservation-form/ReservationForm";
 
 export function Booking() {
   return (

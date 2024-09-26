@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "../../../ui/Button";
+import { Button } from "../../../../ui/Button";
+
+//TODO criar arquivo separado para ErrorMessage
+//TODO separar campos em components para melhorar a readability
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -126,7 +129,7 @@ export function ReservationForm() {
         {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
       </div>
       <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
-        <div className="relative shrink-0">
+        <div className="relative shrink-0 gap-0">
           <label
             htmlFor="month"
             className={`${dateError ? "border-red text-red" : ""}`}
@@ -304,7 +307,7 @@ export function ReservationForm() {
 function ErrorMessage({ children, className }) {
   return (
     <p
-      className={`font-base text-[10px] tracking-[-0.13px] text-red ${className}`}
+      className={`font-base block text-[10px] tracking-[-0.13px] text-red ${className}`}
     >
       {children}
     </p>
