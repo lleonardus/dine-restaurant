@@ -12,7 +12,7 @@ export function MenuHighlightsSection() {
       </div>
       <ul className="mt-[85px] flex shrink-0 flex-col items-center divide-y divide-solid divide-beaver tablet:mt-[54px] tablet:text-left xl:w-[540px]">
         <li className="flex w-[327px] flex-col items-center gap-9 pb-6 tablet:w-auto tablet:flex-row tablet:items-start tablet:gap-[63px]">
-          <picture className="h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
+          <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
               srcSet="/images/homepage/salmon-desktop-tablet.jpg"
@@ -31,7 +31,7 @@ export function MenuHighlightsSection() {
           </div>
         </li>
         <li className="flex w-[327px] flex-col items-center gap-9 py-6 tablet:w-auto tablet:flex-row tablet:items-start tablet:gap-[63px]">
-          <picture className="h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
+          <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
               srcSet="/images/homepage/beef-desktop-tablet.jpg"
@@ -52,7 +52,7 @@ export function MenuHighlightsSection() {
           </div>
         </li>
         <li className="flex w-[327px] flex-col items-center gap-9 pt-6 tablet:w-auto tablet:flex-row tablet:items-start tablet:gap-[63px]">
-          <picture className="h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
+          <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
               srcSet="/images/homepage/chocolate-desktop-tablet.jpg"
