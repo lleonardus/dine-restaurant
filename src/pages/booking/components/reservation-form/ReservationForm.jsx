@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from "./ErrorMessage";
 import { Button } from "../../../../ui/Button";
-
-//TODO criar arquivo separado para ErrorMessage
-//TODO separar campos em components para melhorar a readability
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -301,15 +299,5 @@ export function ReservationForm() {
         {isSubmitting ? "Loading" : "Make Reservation"}
       </Button>
     </form>
-  );
-}
-
-function ErrorMessage({ children, className }) {
-  return (
-    <p
-      className={`font-base block text-[10px] tracking-[-0.13px] text-red ${className}`}
-    >
-      {children}
-    </p>
   );
 }
