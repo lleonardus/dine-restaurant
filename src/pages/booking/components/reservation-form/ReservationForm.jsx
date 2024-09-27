@@ -5,6 +5,7 @@ import {
   isDateAvailable,
   isTimeAvailable,
 } from "./utils/dateValidators";
+import { nameFormatter, dateFormatter } from "./utils/formatters";
 import { NameInput } from "./NameInput";
 import { EmailInput } from "./EmailInput";
 import { Label } from "./Label";
@@ -16,7 +17,6 @@ import { MinutesInput } from "./MinutesInput";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
-import { nameFormatter } from "./utils/formatters";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -65,16 +65,8 @@ export function ReservationForm() {
       setError("hour", { type: "custom", message: "Unavailable time" });
     } else {
       reset();
-
-      const formattedDate = date.toLocaleDateString("en-US");
-      const formattedTime = date.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      });
-      const formatted = `${formattedDate} at ${formattedTime.toLowerCase()}`;
       alert(
-        `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${formatted} has been made successfully! For more information, see the email that we sent to ${email}`,
+        `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`,
       );
     }
   }
