@@ -8,11 +8,11 @@ export function HourInput({ period, register, timeError, clearListOfErrors }) {
         required: "This field is incomplete",
         min: {
           value: period === "AM" ? 9 : 1,
-          message: "Invalid date",
+          message: "Invalid time",
         },
         max: {
           value: period === "AM" ? 11 : 12,
-          message: "Invalid date",
+          message: "Invalid time",
         },
         onChange: () => clearListOfErrors(["hour", "minutes"]),
       })}
