@@ -9,6 +9,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
+import { NameInput } from "./NameInput";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -72,46 +73,21 @@ export function ReservationForm() {
 
   return (
     <form
-      id="form"
       onSubmit={handleSubmit(onSubmit)}
       className="absolute right-[50%] flex min-w-[327px] translate-x-[50%] translate-y-[-137px] flex-col bg-white px-8 pb-8 pt-[34px] shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] tablet:w-[540px] tablet:translate-y-[-230px] tablet:px-12 tablet:py-12 xl:right-[50%] xl:translate-x-[100%] xl:translate-y-[-341px] xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:h-[76px] xl:before:w-40 xl:before:-translate-x-20 xl:before:translate-y-[23px] xl:before:bg-[url('/images/patterns/pattern-lines.svg')] xl:before:bg-cover xl:before:bg-no-repeat xl:after:absolute xl:after:bottom-0 xl:after:left-0 xl:after:h-20 xl:after:w-20 xl:after:bg-white"
     >
-      <div className="mb-[34px]">
-        <input
-          placeholder="Name"
-          type="text"
-          className={`${errors.name ? "border-red placeholder:text-red/50" : ""}`}
-          {...register("name", {
-            required: "This field is required",
-            validate: {
-              minLength: (value) =>
-                value.length >= 3 || "Name must be at least 3 characters",
-              maxLength: (value) =>
-                value.length <= 30 || "Name must be at most 30 characters",
-              noSpecialChars: (value) =>
-                /^[A-Za-zÀ-ÖØ-öø-ÿÇç\s~]+$/.test(value) ||
-                "Name must not contain special characters",
-            },
-            onChange: () => clearErrors("name"),
-          })}
-        />
-        {errors.name && (
-          <ErrorMessage className={"pl-4"}>{errors.name.message}</ErrorMessage>
-        )}
-      </div>
+      <NameInput register={register} errors={errors} />
       <div className="mb-[34px]">
         <input
           placeholder="Email"
           type="text"
           className={`${errors.email ? "border-red placeholder:text-red/50" : ""}`}
-          onChange={() => clearErrors("name")}
           {...register("email", {
             required: "This field is required",
             pattern: {
               value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
               message: "Please use a valid email address",
             },
-            onChange: () => clearErrors("name"),
           })}
         />
         {errors.email && (
