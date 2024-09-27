@@ -65,6 +65,8 @@ export function ReservationForm() {
       setError("hour", { type: "custom", message: "Unavailable time" });
     } else {
       reset();
+      setPeriod("AM");
+      setNumberOfPeople(4);
       document.activeElement.blur();
       alert(
         `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`,
