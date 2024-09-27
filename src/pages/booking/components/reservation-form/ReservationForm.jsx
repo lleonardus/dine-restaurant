@@ -11,10 +11,11 @@ import { Label } from "./Label";
 import { MonthInput } from "./MonthInput";
 import { DayInput } from "./DayInput";
 import { YearInput } from "./YearInput";
+import { HourInput } from "./HourInput";
+import { MinutesInput } from "./MinutesInput";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
-import { HourInput } from "./HourInput";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -127,16 +128,10 @@ export function ReservationForm() {
             timeError={timeError}
             clearListOfErrors={clearListOfErrors}
           />
-          <input
-            placeholder="00"
-            type="number"
-            {...register("minutes", {
-              required: "This field is incomplete",
-              min: { value: 0, message: "invalid time" },
-              max: { value: 59, message: "invalid time" },
-              onChange: () => clearListOfErrors(["hour", "minutes"]),
-            })}
-            className={`${timeError ? "border-red text-red placeholder:text-red/50" : ""}`}
+          <MinutesInput
+            register={register}
+            timeError={timeError}
+            clearListOfErrors={clearListOfErrors}
           />
           <PeriodSelector
             period={period}
