@@ -1,6 +1,7 @@
+import { nameFormatter } from "./utils/formatters";
 import { ErrorMessage } from "./ErrorMessage";
 
-export function NameInput({ register, errors }) {
+export function NameInput({ register, setValue, errors }) {
   return (
     <div className="mb-[34px]">
       <input
@@ -9,6 +10,10 @@ export function NameInput({ register, errors }) {
         className={`${errors.name ? "border-red placeholder:text-red/50" : ""}`}
         {...register("name", {
           required: "This field is required",
+          onBlur: (e) => {
+            const name = e.target.value;
+            setValue("name", nameFormatter(name));
+          },
           validate: {
             minLength: (value) =>
               value.length >= 3 || "Name must be at least 3 characters",
