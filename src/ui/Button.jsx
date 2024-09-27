@@ -15,7 +15,7 @@ export function Button({
                 after:top-0 after:z-[-1] after:h-[110%] after:w-0 after:translate-x-[-50%]
                 after:bg-white after:transition-[width] after:duration-[220ms] 
                 after:ease-in hover:text-cod-gray after:hover:w-[110%] after:hover:outline
-                disabled:cursor-not-allowed disabled:bg-[transparent] disabled:text-cod-gray/30
+                disabled:cursor-wait disabled:bg-[transparent] disabled:text-cod-gray/30
                 disabled:outline-cod-gray/30 disabled:after:relative disabled:hover:bg-[transparent]
                 ${additionalClasses}`;
 
