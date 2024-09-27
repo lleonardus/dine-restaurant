@@ -11,6 +11,7 @@ import { Label } from "./Label";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
+import { MonthInput } from "./MonthInput";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -90,17 +91,10 @@ export function ReservationForm() {
           Pick a date
         </Label>
         <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
-          <input
-            id="month"
-            placeholder="MM"
-            type="number"
-            {...register("month", {
-              required: "This field is incomplete",
-              min: { value: 1, message: "invalid date" },
-              max: { value: 12, message: "invalid date" },
-              onChange: () => clearListOfErrors(["month", "day", "year"]),
-            })}
-            className={`${dateError ? "border-red text-red placeholder:text-red/50" : ""}`}
+          <MonthInput
+            register={register}
+            dateError={dateError}
+            clearListOfErrors={clearListOfErrors}
           />
           <input
             placeholder="DD"
