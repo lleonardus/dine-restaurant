@@ -78,7 +78,9 @@ export function ReservationForm() {
             onChange: () => clearErrors("name"),
           })}
         />
-        {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+        {errors.name && (
+          <ErrorMessage className={"pl-4"}>{errors.name.message}</ErrorMessage>
+        )}
       </div>
       <div className="mb-[34px]">
         <input
@@ -95,7 +97,9 @@ export function ReservationForm() {
             onChange: () => clearErrors("name"),
           })}
         />
-        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+        {errors.email && (
+          <ErrorMessage className={"pl-4"}>{errors.email.message}</ErrorMessage>
+        )}
       </div>
       <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
         <div className="relative shrink-0 gap-0">
@@ -147,7 +151,7 @@ export function ReservationForm() {
                 message: "invalid date",
               },
               max: {
-                value: currentDate.getFullYear() + 6,
+                value: currentDate.getFullYear() + 1,
                 message: "invalid date",
               },
               onChange: () => clearListOfErrors(["month", "day", "year"]),
@@ -178,17 +182,12 @@ export function ReservationForm() {
             {...register("hour", {
               required: "This field is incomplete",
               min: {
-                value: 1,
+                value: period === "AM" ? 9 : 1,
                 message: "Invalid date",
               },
               max: {
-                value: 12,
+                value: period === "AM" ? 11 : 12,
                 message: "Invalid date",
-              },
-              validate: (hour) => {
-                return Number.parseInt(hour) === 12 && period === "AM"
-                  ? "Invalid time"
-                  : true;
               },
               onChange: () => clearListOfErrors(["hour", "minutes"]),
             })}
@@ -217,7 +216,7 @@ export function ReservationForm() {
         setNumberOfPeople={setNumberOfPeople}
       />
       <Button theme={"light"} type={"submit"} disabled={isSubmitting}>
-        {isSubmitting ? "Loading" : "Make Reservation"}
+        {isSubmitting ? "Loading..." : "Make Reservation"}
       </Button>
     </form>
   );
