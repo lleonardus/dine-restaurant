@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
-  isDateAvailable,
   isDateValid,
+  isDateAvailable,
   isTimeAvailable,
 } from "./utils/dateValidators";
 import { ErrorMessage } from "./ErrorMessage";
@@ -38,6 +38,7 @@ export function ReservationForm() {
   }
 
   async function onSubmit(formData) {
+    //Simulating an API request
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const { name, email, day, month, year, hour, minutes } = formData;
@@ -82,6 +83,15 @@ export function ReservationForm() {
           className={`${errors.name ? "border-red placeholder:text-red/50" : ""}`}
           {...register("name", {
             required: "This field is required",
+            validate: {
+              minLength: (value) =>
+                value.length >= 3 || "Name must be at least 3 characters",
+              maxLength: (value) =>
+                value.length <= 30 || "Name must be at most 30 characters",
+              noSpecialChars: (value) =>
+                /^[A-Za-zÀ-ÖØ-öø-ÿÇç\s~]+$/.test(value) ||
+                "Name must not contain special characters",
+            },
             onChange: () => clearErrors("name"),
           })}
         />
