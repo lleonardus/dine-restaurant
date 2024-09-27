@@ -14,6 +14,7 @@ import { YearInput } from "./YearInput";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
+import { HourInput } from "./HourInput";
 
 export function ReservationForm() {
   const [period, setPeriod] = useState("AM");
@@ -120,23 +121,11 @@ export function ReservationForm() {
           Pick a time
         </Label>
         <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
-          <input
-            id="hour"
-            placeholder="09"
-            type="number"
-            {...register("hour", {
-              required: "This field is incomplete",
-              min: {
-                value: period === "AM" ? 9 : 1,
-                message: "Invalid date",
-              },
-              max: {
-                value: period === "AM" ? 11 : 12,
-                message: "Invalid date",
-              },
-              onChange: () => clearListOfErrors(["hour", "minutes"]),
-            })}
-            className={`${timeError ? "border-red text-red placeholder:text-red/50" : ""}`}
+          <HourInput
+            period={period}
+            register={register}
+            timeError={timeError}
+            clearListOfErrors={clearListOfErrors}
           />
           <input
             placeholder="00"
