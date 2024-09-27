@@ -1,4 +1,4 @@
-export { isDateAvailable, isTimeAvailable };
+export { isDateAvailable, isDateValid, isTimeAvailable };
 
 function isDateAvailable(date) {
   const now = new Date();
@@ -12,6 +12,18 @@ function isTimeAvailable(date) {
   return (
     (isWeekend && isRestaurantOpened(date, 23, 30)) ||
     (!isWeekend && isRestaurantOpened(date, 22, 0))
+  );
+}
+
+function isDateValid(date, day, month, year) {
+  if (isNaN(date.getTime())) {
+    return false;
+  }
+
+  return (
+    date.getDate() === Number.parseInt(day) &&
+    date.getMonth() === Number.parseInt(month) - 1 &&
+    date.getFullYear() === Number.parseInt(year)
   );
 }
 

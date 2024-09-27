@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { isDateAvailable, isTimeAvailable } from "./utils/dateValidators";
+import {
+  isDateAvailable,
+  isDateValid,
+  isTimeAvailable,
+} from "./utils/dateValidators";
 import { ErrorMessage } from "./ErrorMessage";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
@@ -44,7 +48,7 @@ export function ReservationForm() {
       minutes,
     );
 
-    if (!isDateAvailable(date)) {
+    if (!isDateValid(date, day, month, year) || !isDateAvailable(date)) {
       setError("month", { type: "custom", message: "Unavailable date" });
     } else if (!isTimeAvailable(date)) {
       setError("hour", { type: "custom", message: "Unavailable time" });
