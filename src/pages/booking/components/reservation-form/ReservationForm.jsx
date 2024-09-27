@@ -7,7 +7,7 @@ import {
 } from "./utils/dateValidators";
 import { NameInput } from "./NameInput";
 import { EmailInput } from "./EmailInput";
-import { ErrorMessage } from "./ErrorMessage";
+import { Label } from "./Label";
 import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
@@ -80,21 +80,15 @@ export function ReservationForm() {
       <NameInput register={register} errors={errors} />
       <EmailInput register={register} errors={errors} />
       <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
-        <div className="relative shrink-0 gap-0">
-          <label
-            htmlFor="month"
-            className={`${dateError ? "border-red text-red" : ""}`}
-          >
-            Pick a date
-          </label>
-          {dateError && (
-            <ErrorMessage className="max-tablet:absolute max-tablet:left-[100px] max-tablet:top-0">
-              {errors.month?.message ||
-                errors.day?.message ||
-                errors.year?.message}
-            </ErrorMessage>
-          )}
-        </div>
+        <Label
+          htmlFor={"month"}
+          error={dateError}
+          errorMessage={
+            errors.month?.message || errors.day?.message || errors.year?.message
+          }
+        >
+          Pick a date
+        </Label>
         <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
           <input
             id="month"
@@ -139,19 +133,13 @@ export function ReservationForm() {
         </div>
       </div>
       <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
-        <div className="relative shrink-0">
-          <label
-            htmlFor="hour"
-            className={`${timeError ? "border-red text-red" : ""}`}
-          >
-            Pick a time
-          </label>
-          {timeError && (
-            <ErrorMessage className="max-tablet:absolute max-tablet:left-[100px] max-tablet:top-0">
-              {errors.hour?.message || errors.minutes?.message}
-            </ErrorMessage>
-          )}
-        </div>
+        <Label
+          htmlFor={"hour"}
+          error={timeError}
+          errorMessage={errors.hour?.message || errors.minutes?.message}
+        >
+          Pick a time
+        </Label>
         <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
           <input
             id="hour"
