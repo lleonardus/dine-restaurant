@@ -9,15 +9,15 @@ export function Button({
   type,
   onClick,
 }) {
-  const base = `relative z-[9999] overflow-hidden inline-block py-[18px] text-center 
-                text-heading-sm uppercase outline outline-1 transition-[color]
-                delay-75 ease-in after:absolute after:left-[50%] after:top-0
-                after:z-[-1] after:h-[110%] after:hover:outline after:w-0 after:translate-x-[-50%]
-                after:bg-white after:transition-[width] after:duration-[220ms]
-                after:ease-in after:hover:w-[110%] hover:text-cod-gray 
-                disabled:cursor-not-allowed disabled:bg-[transparent]
-                disabled:text-cod-gray/30 disabled:outline-cod-gray/30 
-                disabled:hover:bg-[transparent] ${additionalClasses}`;
+  const base = `relative z-[9999] inline-block overflow-hidden py-[18px] 
+                text-center text-heading-sm uppercase outline outline-1 
+                transition-[color] delay-75 ease-in after:absolute after:left-[50%]
+                after:top-0 after:z-[-1] after:h-[110%] after:w-0 after:translate-x-[-50%]
+                after:bg-white after:transition-[width] after:duration-[220ms] 
+                after:ease-in hover:text-cod-gray after:hover:w-[110%] after:hover:outline
+                disabled:cursor-not-allowed disabled:bg-[transparent] disabled:text-cod-gray/30
+                disabled:outline-cod-gray/30 disabled:after:relative disabled:hover:bg-[transparent]
+                ${additionalClasses}`;
 
   const styles = {
     dark: `${base} bg-[transparent] text-white outline-white hover:outline-white after:hover:outline-white`,
