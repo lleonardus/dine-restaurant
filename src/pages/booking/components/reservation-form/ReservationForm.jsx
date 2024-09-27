@@ -19,6 +19,7 @@ export function ReservationForm() {
   const {
     register,
     handleSubmit,
+    reset,
     setError,
     clearErrors,
     formState: { errors, isSubmitting },
@@ -53,6 +54,8 @@ export function ReservationForm() {
     } else if (!isTimeAvailable(date)) {
       setError("hour", { type: "custom", message: "Unavailable time" });
     } else {
+      reset();
+
       const formattedDate = date.toLocaleDateString("en-US");
       const formattedTime = date.toLocaleTimeString("en-US", {
         hour: "numeric",
