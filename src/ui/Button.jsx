@@ -24,10 +24,16 @@ export function Button({
     light: `${base} bg-cod-gray text-white outline-cod-gray hover:outline-cod-gray after:hover:outline-cod-gray`,
   };
 
+  function handleClick() {
+    const pageTop = document.documentElement;
+    pageTop.scrollIntoView({ behavior: "instant" });
+    onClick?.();
+  }
+
   if (to) {
     return (
       <Link
-        onClick={() => onClick?.()}
+        onClick={handleClick}
         to={to}
         className={`${styles[theme]} w-[245px]`}
       >
