@@ -91,11 +91,13 @@ export function ReservationForm() {
         <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
           <MonthInput
             register={register}
+            setValue={setValue}
             dateError={dateError}
             clearErrors={clearErrors}
           />
           <DayInput
             register={register}
+            setValue={setValue}
             dateError={dateError}
             clearErrors={clearErrors}
           />
@@ -119,11 +121,13 @@ export function ReservationForm() {
           <HourInput
             period={period}
             register={register}
+            setValue={setValue}
             timeError={timeError}
             clearErrors={clearErrors}
           />
           <MinutesInput
             register={register}
+            setValue={setValue}
             timeError={timeError}
             clearErrors={clearErrors}
           />

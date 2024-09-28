@@ -1,4 +1,12 @@
-export function HourInput({ period, register, timeError, clearErrors }) {
+import { twoDigitsNumberFormatter } from "./utils/formatters";
+
+export function HourInput({
+  period,
+  register,
+  setValue,
+  timeError,
+  clearErrors,
+}) {
   return (
     <input
       id="hour"
@@ -15,6 +23,9 @@ export function HourInput({ period, register, timeError, clearErrors }) {
           message: "Invalid time",
         },
         onChange: () => clearErrors(["hour", "minutes"]),
+        onBlur: (e) =>
+          setValue("hour", twoDigitsNumberFormatter(e.target.value))
+        ,
       })}
       className={`${timeError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />

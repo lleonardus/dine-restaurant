@@ -1,4 +1,6 @@
-export function MonthInput({ register, dateError, clearErrors }) {
+import { twoDigitsNumberFormatter } from "./utils/formatters";
+
+export function MonthInput({ register, setValue, dateError, clearErrors }) {
   return (
     <input
       id="month"
@@ -9,6 +11,8 @@ export function MonthInput({ register, dateError, clearErrors }) {
         min: { value: 1, message: "invalid date" },
         max: { value: 12, message: "invalid date" },
         onChange: () => clearErrors(["month", "day", "year"]),
+        onBlur: (e) =>
+          setValue("month", twoDigitsNumberFormatter(e.target.value)),
       })}
       className={`${dateError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />
