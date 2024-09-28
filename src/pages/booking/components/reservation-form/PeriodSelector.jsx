@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function PeriodSelector({ period, setPeriod, clearErrors }) {
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(function() {
+    function handleBlur(e) {
+      if (!ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleBlur);
+    return () => document.removeEventListener("mousedown", handleBlur);
+  }, []);
 
   return (
-    <div className="relative">
+    <div ref={ref} className="relative">
       <button
         type="button"
         onClick={() => setIsOpen((isOpen) => !isOpen)}
