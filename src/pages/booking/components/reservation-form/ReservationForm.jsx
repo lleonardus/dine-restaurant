@@ -42,10 +42,6 @@ export function ReservationForm() {
   const dateError = errors.month || errors.day || errors.year;
   const timeError = errors.hour || errors.minutes;
 
-  function clearListOfErrors(list) {
-    list.forEach((error) => clearErrors(error));
-  }
-
   async function onSubmit(formData) {
     //Simulating an API request
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -68,9 +64,10 @@ export function ReservationForm() {
       setPeriod("AM");
       setNumberOfPeople(4);
       document.activeElement.blur();
-      alert(
-        `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`,
-      );
+
+      const successMessage = `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`;
+
+      alert(successMessage);
     }
   }
 
@@ -95,18 +92,18 @@ export function ReservationForm() {
           <MonthInput
             register={register}
             dateError={dateError}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
           <DayInput
             register={register}
             dateError={dateError}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
           <YearInput
             currentDate={currentDate}
             register={register}
             dateError={dateError}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
         </div>
       </div>
@@ -123,17 +120,17 @@ export function ReservationForm() {
             period={period}
             register={register}
             timeError={timeError}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
           <MinutesInput
             register={register}
             timeError={timeError}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
           <PeriodSelector
             period={period}
             setPeriod={setPeriod}
-            clearListOfErrors={clearListOfErrors}
+            clearErrors={clearErrors}
           />
         </div>
       </div>

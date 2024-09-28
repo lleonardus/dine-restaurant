@@ -1,4 +1,4 @@
-export function DayInput({ register, dateError, clearListOfErrors }) {
+export function DayInput({ register, dateError, clearErrors }) {
   return (
     <input
       placeholder="DD"
@@ -7,7 +7,7 @@ export function DayInput({ register, dateError, clearListOfErrors }) {
         required: "This field is incomplete",
         min: { value: 1, message: "invalid date" },
         max: { value: 31, message: "invalid date" },
-        onChange: () => clearListOfErrors(["month", "day", "year"]),
+        onChange: () => clearErrors(["month", "day", "year"]),
       })}
       className={`${dateError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />

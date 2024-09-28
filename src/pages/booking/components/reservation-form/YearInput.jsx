@@ -1,9 +1,4 @@
-export function YearInput({
-  currentDate,
-  register,
-  dateError,
-  clearListOfErrors,
-}) {
+export function YearInput({ currentDate, register, dateError, clearErrors }) {
   return (
     <input
       placeholder="YYYY"
@@ -18,7 +13,7 @@ export function YearInput({
           value: currentDate.getFullYear() + 1,
           message: "invalid date",
         },
-        onChange: () => clearListOfErrors(["month", "day", "year"]),
+        onChange: () => clearErrors(["month", "day", "year"]),
       })}
       className={`${dateError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />

@@ -1,4 +1,4 @@
-export function HourInput({ period, register, timeError, clearListOfErrors }) {
+export function HourInput({ period, register, timeError, clearErrors }) {
   return (
     <input
       id="hour"
@@ -14,7 +14,7 @@ export function HourInput({ period, register, timeError, clearListOfErrors }) {
           value: period === "AM" ? 11 : 12,
           message: "Invalid time",
         },
-        onChange: () => clearListOfErrors(["hour", "minutes"]),
+        onChange: () => clearErrors(["hour", "minutes"]),
       })}
       className={`${timeError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />

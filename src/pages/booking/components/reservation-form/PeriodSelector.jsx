@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function PeriodSelector({ period, setPeriod, clearListOfErrors }) {
+export function PeriodSelector({ period, setPeriod, clearErrors }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -26,7 +26,7 @@ export function PeriodSelector({ period, setPeriod, clearListOfErrors }) {
               type="button"
               onClick={() => {
                 setPeriod("AM");
-                clearListOfErrors(["hour", "minutes"]);
+                clearErrors(["hour", "minutes"]);
               }}
             >
               AM
@@ -39,7 +39,7 @@ export function PeriodSelector({ period, setPeriod, clearListOfErrors }) {
               type="button"
               onClick={() => {
                 setPeriod("PM");
-                clearListOfErrors(["hour", "minutes"]);
+                clearErrors(["hour", "minutes"]);
               }}
             >
               PM
