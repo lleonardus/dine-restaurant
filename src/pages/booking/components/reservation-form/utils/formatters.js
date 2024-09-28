@@ -1,4 +1,4 @@
-export { nameFormatter, dateFormatter };
+export { nameFormatter, dateFormatter, twoDigitsNumberFormatter };
 
 function nameFormatter(name) {
   return name
@@ -17,4 +17,9 @@ function dateFormatter(date) {
     hour12: true,
   });
   return `${formattedDate} at ${formattedTime.toLowerCase()}`;
+}
+
+function twoDigitsNumberFormatter(inputValue) {
+  const number = Number.parseInt(inputValue);
+  return number < 10 ? `0${number}` : number;
 }
