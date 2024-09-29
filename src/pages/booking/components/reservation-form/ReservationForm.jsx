@@ -18,7 +18,7 @@ import { PeriodSelector } from "./PeriodSelector";
 import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
 
-export function ReservationForm() {
+export function ReservationForm({ formRef }) {
   const [period, setPeriod] = useState("AM");
   const [numberOfPeople, setNumberOfPeople] = useState(4);
 
@@ -74,6 +74,7 @@ export function ReservationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
+      ref={formRef}
       className="absolute right-[50%] flex min-w-[327px] translate-x-[50%] translate-y-[-137px] flex-col bg-white px-8 pb-8 pt-[34px] shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] tablet:w-[540px] tablet:translate-y-[-230px] tablet:px-12 tablet:py-12 xl:right-[50%] xl:translate-x-[100%] xl:translate-y-[-341px] xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:h-[76px] xl:before:w-40 xl:before:-translate-x-20 xl:before:translate-y-[23px] xl:before:bg-[url('/images/patterns/pattern-lines.svg')] xl:before:bg-cover xl:before:bg-no-repeat xl:after:absolute xl:after:bottom-0 xl:after:left-0 xl:after:h-20 xl:after:w-20 xl:after:bg-white"
     >
       <NameInput register={register} setValue={setValue} errors={errors} />

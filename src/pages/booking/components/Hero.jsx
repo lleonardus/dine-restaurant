@@ -1,12 +1,14 @@
 import { Logo } from "../../../ui/Logo";
 import { Button } from "../../../ui/Button";
 
-export function Hero() {
-  function scrollToForm() {
-    const form = document.getElementsByTagName("form")[0];
-    const nameField = form?.firstChild?.firstChild;
+export function Hero({ formRef }) {
+  function scrollAndFocusNameField() {
+    const form = formRef.current;
+    if (!form) return;
 
-    form?.scrollIntoView({ behavior: "smooth" });
+    const nameField = form.querySelector("[name='name']");
+
+    form.scrollIntoView({ behavior: "smooth" });
     nameField?.focus();
   }
 
@@ -27,7 +29,7 @@ export function Hero() {
         theme={"dark"}
         additionalClasses={"w-[245px] tablet:hidden mt-[19px]"}
         type={"button"}
-        onClick={scrollToForm}
+        onClick={scrollAndFocusNameField}
       >
         Reserve place
       </Button>
