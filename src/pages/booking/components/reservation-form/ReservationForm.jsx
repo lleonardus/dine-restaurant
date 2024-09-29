@@ -46,6 +46,7 @@ export function ReservationForm({ formRef }) {
     //Simulating an API request
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
+    formData.name = nameFormatter(formData.name);
     const { name, email, day, month, year, hour, minutes } = formData;
     const date = new Date(
       year,
@@ -65,7 +66,7 @@ export function ReservationForm({ formRef }) {
       setNumberOfPeople(4);
       document.activeElement.blur();
 
-      const successMessage = `Hello, ${nameFormatter(name)}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`;
+      const successMessage = `Hello, ${name}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`;
 
       alert(successMessage);
     }
