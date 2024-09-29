@@ -4,6 +4,12 @@ export function PeriodSelector({ period, setPeriod, clearErrors }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
+  function handleSelectOption(e) {
+    setPeriod(e.target.innerText);
+    setIsOpen(false);
+    clearErrors(["hour", "minutes"]);
+  }
+
   useEffect(function() {
     function handleBlur(e) {
       if (!ref.current.contains(e.target)) {
@@ -34,26 +40,14 @@ export function PeriodSelector({ period, setPeriod, clearErrors }) {
           <li
             className={`${period === "AM" ? "bg-[url('/images/icons/icon-check.svg')] bg-[length:13px_11px] bg-[top_8px_left_17px] bg-no-repeat" : ""}`}
           >
-            <button
-              type="button"
-              onClick={() => {
-                setPeriod("AM");
-                clearErrors(["hour", "minutes"]);
-              }}
-            >
+            <button type="button" onClick={handleSelectOption}>
               AM
             </button>
           </li>
           <li
             className={`${period === "PM" ? "bg-[url('/images/icons/icon-check.svg')] bg-[length:13px_11px] bg-[top_8px_left_17px] bg-no-repeat" : ""}`}
           >
-            <button
-              type="button"
-              onClick={() => {
-                setPeriod("PM");
-                clearErrors(["hour", "minutes"]);
-              }}
-            >
+            <button type="button" onClick={handleSelectOption}>
               PM
             </button>
           </li>
