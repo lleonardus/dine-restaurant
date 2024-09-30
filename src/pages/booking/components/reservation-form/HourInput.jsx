@@ -1,3 +1,4 @@
+import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
 import { twoDigitsNumberFormatter } from "./utils/formatters";
 
 export function HourInput({
@@ -7,25 +8,32 @@ export function HourInput({
   timeError,
   clearErrors,
 }) {
+  const minValue = period === "AM" ? 9 : 1;
+  const maxValue = period === "AM" ? 11 : 12;
+
   return (
     <input
       id="hour"
       placeholder="09"
+      min={minValue}
+      max={maxValue}
       type="number"
       {...register("hour", {
         required: "This field is incomplete",
         min: {
-          value: period === "AM" ? 9 : 1,
+          value: minValue,
           message: "Invalid time",
         },
         max: {
-          value: period === "AM" ? 11 : 12,
+          value: maxValue,
           message: "Invalid time",
         },
-        onChange: () => clearErrors(["hour", "minutes"]),
+        onChange: (e) => {
+          focusOnSiblingWhenComplete(e);
+          clearErrors(["hour", "minutes"]);
+        },
         onBlur: (e) =>
-          setValue("hour", twoDigitsNumberFormatter(e.target.value))
-        ,
+          setValue("hour", twoDigitsNumberFormatter(e.target.value)),
       })}
       className={`${timeError ? "border-red text-red placeholder:text-red/50" : ""}`}
     />
