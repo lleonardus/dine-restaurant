@@ -8,28 +8,23 @@ export function HourInput({
   timeError,
   clearErrors,
 }) {
-  const minValue = period === "AM" ? 9 : 1;
-  const maxValue = period === "AM" ? 11 : 12;
-
   return (
     <input
       id="hour"
       placeholder="09"
-      min={minValue}
-      max={maxValue}
       type="number"
       {...register("hour", {
         required: "This field is incomplete",
         min: {
-          value: minValue,
+          value: period === "AM" ? 9 : 1,
           message: "Invalid time",
         },
         max: {
-          value: maxValue,
+          value: period === "AM" ? 11 : 12,
           message: "Invalid time",
         },
         onChange: (e) => {
-          focusOnSiblingWhenComplete(e);
+          focusOnSiblingWhenComplete(e, 2);
           clearErrors(["hour", "minutes"]);
         },
         onBlur: (e) =>

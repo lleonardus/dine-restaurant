@@ -6,8 +6,6 @@ export function MonthInput({ register, setValue, dateError, clearErrors }) {
     <input
       id="month"
       placeholder="MM"
-      min={1}
-      max={12}
       type="number"
       {...register("month", {
         required: "This field is incomplete",

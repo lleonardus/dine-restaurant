@@ -1,13 +1,11 @@
-import { twoDigitsNumberFormatter } from "./utils/formatters";
 import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
+import { twoDigitsNumberFormatter } from "./utils/formatters";
 
 export function DayInput({ register, setValue, dateError, clearErrors }) {
   return (
     <input
       placeholder="DD"
       type="number"
-      min={1}
-      max={31}
       {...register("day", {
         required: "This field is incomplete",
         min: { value: 1, message: "invalid date" },
