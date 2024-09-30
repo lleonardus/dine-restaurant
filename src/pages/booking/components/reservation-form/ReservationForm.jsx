@@ -5,7 +5,8 @@ import {
   isDateAvailable,
   isTimeAvailable,
 } from "./utils/dateValidators";
-import { nameFormatter, dateFormatter } from "./utils/formatters";
+import { nameFormatter } from "./utils/formatters";
+import { SuccessMessageModal } from "./SuccessMessageModal";
 import { NameInput } from "./NameInput";
 import { EmailInput } from "./EmailInput";
 import { Label } from "./Label";
@@ -19,6 +20,8 @@ import { NumberOfPeopleSelector } from "./NumberOfPeopleSelector";
 import { Button } from "../../../../ui/Button";
 
 export function ReservationForm({ formRef }) {
+  const [isModalOpen, setIsModelOpen] = useState(false);
+  const [formData, setFormData] = useState("");
   const [period, setPeriod] = useState("AM");
   const [numberOfPeople, setNumberOfPeople] = useState(4);
 
@@ -35,6 +38,12 @@ export function ReservationForm({ formRef }) {
   } = useForm({
     mode: "onChange",
     defaultValues: {
+      name: "leonardo",
+      email: "leonardo@gmail.com",
+      month: "12",
+      day: "12",
+      hour: "11",
+      minutes: "00",
       year: currentDate.getFullYear(),
     },
   });
@@ -66,87 +75,93 @@ export function ReservationForm({ formRef }) {
       setNumberOfPeople(4);
       document.activeElement.blur();
 
-      const successMessage = `Hello, ${name}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`;
-
-      alert(successMessage);
+      setIsModelOpen(true);
+      setFormData({ name, email, date, numberOfPeople });
     }
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      ref={formRef}
-      className="absolute right-[50%] flex min-w-[327px] translate-x-[50%] translate-y-[-137px] flex-col bg-white px-8 pb-8 pt-[34px] shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] tablet:w-[540px] tablet:translate-y-[-230px] tablet:px-12 tablet:py-12 xl:right-[50%] xl:translate-x-[100%] xl:translate-y-[-341px] xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:h-[76px] xl:before:w-40 xl:before:-translate-x-20 xl:before:translate-y-[23px] xl:before:bg-[url('/images/patterns/pattern-lines.svg')] xl:before:bg-cover xl:before:bg-no-repeat xl:after:absolute xl:after:bottom-0 xl:after:left-0 xl:after:h-20 xl:after:w-20 xl:after:bg-white"
-    >
-      <NameInput register={register} setValue={setValue} errors={errors} />
-      <EmailInput register={register} errors={errors} />
-      <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
-        <Label
-          htmlFor={"month"}
-          error={dateError}
-          errorMessage={
-            errors.month?.message || errors.day?.message || errors.year?.message
-          }
-        >
-          Pick a date
-        </Label>
-        <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
-          <MonthInput
-            register={register}
-            setValue={setValue}
-            dateError={dateError}
-            clearErrors={clearErrors}
-          />
-          <DayInput
-            register={register}
-            setValue={setValue}
-            dateError={dateError}
-            clearErrors={clearErrors}
-          />
-          <YearInput
-            currentDate={currentDate}
-            register={register}
-            dateError={dateError}
-            clearErrors={clearErrors}
-          />
+    <>
+      {isModalOpen && (
+        <SuccessMessageModal formData={formData} setIsOpen={setIsModelOpen} />
+      )}
+      <form
+        className="absolute right-[50%] flex min-w-[327px] translate-x-[50%] translate-y-[-137px] flex-col bg-white px-8 pb-8 pt-[34px] shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] tablet:w-[540px] tablet:translate-y-[-200px] tablet:px-12 tablet:py-12 xl:right-[50%] xl:translate-x-[100%] xl:translate-y-[-341px] xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:h-[76px] xl:before:w-40 xl:before:-translate-x-20 xl:before:translate-y-[23px] xl:before:bg-[url('/images/patterns/pattern-lines.svg')] xl:before:bg-cover xl:before:bg-no-repeat xl:after:absolute xl:after:bottom-0 xl:after:left-0 xl:after:h-20 xl:after:w-20 xl:after:bg-white"
+        onSubmit={handleSubmit(onSubmit)}
+        ref={formRef}
+      >
+        <NameInput register={register} setValue={setValue} errors={errors} />
+        <EmailInput register={register} errors={errors} />
+        <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
+          <Label
+            htmlFor={"month"}
+            error={dateError}
+            errorMessage={
+              errors.month?.message ||
+              errors.day?.message ||
+              errors.year?.message
+            }
+          >
+            Pick a date
+          </Label>
+          <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
+            <MonthInput
+              register={register}
+              setValue={setValue}
+              dateError={dateError}
+              clearErrors={clearErrors}
+            />
+            <DayInput
+              register={register}
+              setValue={setValue}
+              dateError={dateError}
+              clearErrors={clearErrors}
+            />
+            <YearInput
+              currentDate={currentDate}
+              register={register}
+              dateError={dateError}
+              clearErrors={clearErrors}
+            />
+          </div>
         </div>
-      </div>
-      <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
-        <Label
-          htmlFor={"hour"}
-          error={timeError}
-          errorMessage={errors.hour?.message || errors.minutes?.message}
-        >
-          Pick a time
-        </Label>
-        <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
-          <HourInput
-            period={period}
-            register={register}
-            setValue={setValue}
-            timeError={timeError}
-            clearErrors={clearErrors}
-          />
-          <MinutesInput
-            register={register}
-            setValue={setValue}
-            timeError={timeError}
-            clearErrors={clearErrors}
-          />
-          <PeriodSelector
-            period={period}
-            setPeriod={setPeriod}
-            clearErrors={clearErrors}
-          />
+        <div className="mb-[34px] flex flex-col gap-2 tablet:flex-row tablet:items-center tablet:gap-[65px]">
+          <Label
+            htmlFor={"hour"}
+            error={timeError}
+            errorMessage={errors.hour?.message || errors.minutes?.message}
+          >
+            Pick a time
+          </Label>
+          <div className="grid grid-cols-[3fr_3fr_4.5fr] gap-[14px] tablet:grid-cols-[2fr_2fr_3fr]">
+            <HourInput
+              period={period}
+              register={register}
+              setValue={setValue}
+              timeError={timeError}
+              clearErrors={clearErrors}
+            />
+            <MinutesInput
+              register={register}
+              setValue={setValue}
+              timeError={timeError}
+              clearErrors={clearErrors}
+            />
+            <PeriodSelector
+              period={period}
+              setPeriod={setPeriod}
+              clearErrors={clearErrors}
+            />
+          </div>
         </div>
-      </div>
-      <NumberOfPeopleSelector
-        numberOfPeople={numberOfPeople}
-        setNumberOfPeople={setNumberOfPeople}
-      />
-      <Button theme={"light"} type={"submit"} disabled={isSubmitting}>
-        {isSubmitting ? "Loading..." : "Make Reservation"}
-      </Button>
-    </form>
+        <NumberOfPeopleSelector
+          numberOfPeople={numberOfPeople}
+          setNumberOfPeople={setNumberOfPeople}
+        />
+        <Button theme={"light"} type={"submit"} disabled={isSubmitting}>
+          {isSubmitting ? "Loading..." : "Make Reservation"}
+        </Button>
+      </form>
+    </>
   );
 }
