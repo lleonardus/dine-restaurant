@@ -59,7 +59,7 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
             </g>
           </svg>
         </div>
-        <h1 className="text-[35px] text-heading-lg text-ebony-clay">
+        <h1 className="text-[30px] font-bold leading-[48px] tracking-[-0.5px] text-ebony-clay sm:text-[35px]">
           Congratulations!
         </h1>
         <p className="text-body-base">{message}</p>
