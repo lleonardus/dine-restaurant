@@ -34,7 +34,7 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
   );
 
   return (
-    <div className="fixed inset-0 z-[9999] h-screen w-screen bg-black/50 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[9999] h-screen w-screen bg-black/80 backdrop-blur-sm">
       <div
         ref={modalRef}
         className="absolute left-[50%] top-20 flex w-[90%] min-w-[327px] translate-x-[-50%] flex-col justify-center gap-10 rounded-md bg-white px-10 pb-8 pt-[34px] text-ebony-clay shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] sm:w-[540px] sm:items-center sm:text-center"
