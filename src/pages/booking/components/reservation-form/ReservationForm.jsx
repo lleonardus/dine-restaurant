@@ -38,12 +38,12 @@ export function ReservationForm({ formRef }) {
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      name: "leonardo",
-      email: "leonardo@gmail.com",
-      month: "12",
-      day: "12",
-      hour: "11",
-      minutes: "00",
+      name: "",
+      email: "",
+      month: "",
+      day: "",
+      hour: "",
+      minutes: "",
       year: currentDate.getFullYear(),
     },
   });
