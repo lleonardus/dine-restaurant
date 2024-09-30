@@ -5,13 +5,16 @@ export function ImageItem({ title }) {
       <picture>
         <source
           media="(min-width:1280px)"
-          srcSet={`/images/homepage/${imgName}-desktop.jpg`}
+          srcSet={`/images/homepage/${imgName}-desktop@2x.jpg`}
         />
         <source
           media="(min-width:768px)"
-          srcSet={`/images/homepage/${imgName}-tablet.jpg`}
+          srcSet={`/images/homepage/${imgName}-tablet@2x.jpg`}
         />
-        <img src={`/images/homepage/${imgName}-mobile.jpg`} alt={`${title}`} />
+        <img
+          src={`/images/homepage/${imgName}-mobile@2x.jpg`}
+          alt={`${title}`}
+        />
       </picture>
     </li>
   );

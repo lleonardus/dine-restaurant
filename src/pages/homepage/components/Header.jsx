@@ -8,15 +8,15 @@ export function Header() {
         <picture className="absolute right-[50%] top-0 w-[375px] translate-x-[50%] tablet:w-[768px] xl:right-0 xl:w-[1370px] xl:translate-x-0 desktop:w-[1551px]">
           <source
             media="(min-width: 1280px)"
-            srcSet="/images/homepage/hero-bg-desktop.jpg"
+            srcSet="/images/homepage/hero-bg-desktop@2x.jpg"
           />
           <source
             media="(min-width: 768px)"
-            srcSet="/images/homepage/hero-bg-tablet.jpg"
+            srcSet="/images/homepage/hero-bg-tablet@2x.jpg"
           />
           <img
             className="xl:h-[855px] xl:w-full"
-            src="/images/homepage/hero-bg-mobile.jpg"
+            src="/images/homepage/hero-bg-mobile@2x.jpg"
             alt="shrimp pasta"
           />
         </picture>

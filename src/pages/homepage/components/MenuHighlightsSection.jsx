@@ -15,10 +15,10 @@ export function MenuHighlightsSection() {
           <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
-              srcSet="/images/homepage/salmon-desktop-tablet.jpg"
+              srcSet="/images/homepage/salmon-desktop-tablet@2x.jpg"
             />
             <img
-              src="/images/homepage/salmon-mobile.jpg"
+              src="/images/homepage/salmon-mobile@2x.jpg"
               alt="Seared Salmon Fillet"
             />
           </picture>
@@ -34,10 +34,10 @@ export function MenuHighlightsSection() {
           <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
-              srcSet="/images/homepage/beef-desktop-tablet.jpg"
+              srcSet="/images/homepage/beef-desktop-tablet@2x.jpg"
             />
             <img
-              src="/images/homepage/beef-mobile.jpg"
+              src="/images/homepage/beef-mobile@2x.jpg"
               alt="Rosemary Filet Mignon"
             />
           </picture>
@@ -55,10 +55,10 @@ export function MenuHighlightsSection() {
           <picture className="skeleton-animation h-[245px] w-[327px] shrink-0 tablet:relative tablet:h-[96px] tablet:w-[128px] tablet:after:absolute tablet:after:-right-8 tablet:after:top-[18px] tablet:after:h-[1px] tablet:after:w-8 tablet:after:bg-beaver">
             <source
               media="(min-width: 768px)"
-              srcSet="/images/homepage/chocolate-desktop-tablet.jpg"
+              srcSet="/images/homepage/chocolate-desktop-tablet@2x.jpg"
             />
             <img
-              src="/images/homepage/chocolate-mobile.jpg"
+              src="/images/homepage/chocolate-mobile@2x.jpg"
               alt="Summer Fruit Chocolate Mousse"
             />
           </picture>
