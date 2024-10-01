@@ -8,7 +8,7 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
   const message = `Hello, ${name}. Your reservation for ${numberOfPeople} ${numberOfPeople > 1 ? "people" : "person"} on ${dateFormatter(date)} has been made successfully! For more information, see the email that we sent to ${email}`;
 
   useEffect(
-    function () {
+    function() {
       function handleBlur(e) {
         if (!modalRef?.current.contains(e.target)) {
           setIsOpen(false);
@@ -22,7 +22,7 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
   );
 
   useEffect(
-    function () {
+    function() {
       function handleKeyDown(e) {
         if (e.key === "Enter" || e.key === "Escape") setIsOpen(false);
       }
@@ -37,9 +37,9 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
     <div className="fixed inset-0 z-[9999] h-screen w-screen bg-black/80 backdrop-blur-sm">
       <div
         ref={modalRef}
-        className="absolute left-[50%] top-20 flex w-[90%] min-w-[327px] translate-x-[-50%] flex-col justify-center gap-10 rounded-md bg-white px-10 pb-8 pt-[34px] text-ebony-clay shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] sm:w-[540px] sm:items-center sm:text-center"
+        className="absolute left-[50%] top-20 flex w-[90%] min-w-[327px] translate-x-[-50%] flex-col justify-center gap-10 rounded-md bg-white px-10 pb-8 pt-[34px] text-ebony-clay shadow-[0px_100px_80px_-30px_rgba(0,0,0,0.25)] sm:max-w-[600px] sm:text-center"
       >
-        <div className="h-20 w-20 rounded-full tablet:h-28 tablet:w-28">
+        <div className="h-20 w-20 rounded-full sm:self-center tablet:h-28 tablet:w-28">
           <svg
             viewBox="0 0 1024 1024"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export function SuccessMessageModal({ formData, setIsOpen }) {
         <h1 className="text-[30px] font-bold leading-[48px] tracking-[-0.5px] text-ebony-clay sm:text-[35px]">
           Congratulations!
         </h1>
-        <p className="text-body-base">{message}</p>
+        <p className="hyphens-auto break-words text-body-base">{message}</p>
         <Button
           theme={"light"}
           additionalClasses={
