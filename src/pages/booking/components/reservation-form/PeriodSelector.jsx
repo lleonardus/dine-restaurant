@@ -26,6 +26,7 @@ export function PeriodSelector({ period, setPeriod, clearErrors }) {
       <button
         type="button"
         onClick={() => setIsOpen((isOpen) => !isOpen)}
+        onFocus={() => setIsOpen(true)}
         className="relative flex w-full cursor-pointer gap-[15px] border-b border-shuttle-gray/40 pb-[14px] pl-4 caret-beaver transition-colors hover:border-shuttle-gray focus:border-shuttle-gray focus:outline-none"
       >
         <span className="uppercase">{period}</span>
