@@ -1,11 +1,15 @@
 import { twoDigitsNumberFormatter } from "./utils/formatters";
-import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
+import {
+  focusOnPreviousSiblingWhenEmpty,
+  focusOnSiblingWhenComplete,
+} from "./utils/inputFunctions";
 
 export function MinutesInput({ register, setValue, timeError, clearErrors }) {
   return (
     <input
       placeholder="00"
       type="number"
+      onKeyDown={focusOnPreviousSiblingWhenEmpty}
       {...register("minutes", {
         required: "This field is incomplete",
         min: { value: 0, message: "invalid time" },

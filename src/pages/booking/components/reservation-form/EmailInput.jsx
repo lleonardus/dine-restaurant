@@ -1,3 +1,4 @@
+import { focusOnPreviousSiblingWhenEmpty } from "./utils/inputFunctions";
 import { ErrorMessage } from "./ErrorMessage";
 
 export function EmailInput({ register, errors }) {
@@ -6,6 +7,7 @@ export function EmailInput({ register, errors }) {
       <input
         placeholder="Email"
         type="text"
+        onKeyDown={focusOnPreviousSiblingWhenEmpty}
         className={`${errors.email ? "border-red placeholder:text-red/50" : ""}`}
         {...register("email", {
           required: "This field is required",

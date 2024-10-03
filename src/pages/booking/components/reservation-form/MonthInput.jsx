@@ -1,4 +1,7 @@
-import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
+import {
+  focusOnPreviousSiblingWhenEmpty,
+  focusOnSiblingWhenComplete,
+} from "./utils/inputFunctions";
 import { twoDigitsNumberFormatter } from "./utils/formatters";
 
 export function MonthInput({ register, setValue, dateError, clearErrors }) {
@@ -7,12 +10,13 @@ export function MonthInput({ register, setValue, dateError, clearErrors }) {
       id="month"
       placeholder="MM"
       type="number"
+      onKeyDown={focusOnPreviousSiblingWhenEmpty}
       {...register("month", {
         required: "This field is incomplete",
         min: { value: 1, message: "invalid date" },
         max: { value: 12, message: "invalid date" },
         onChange: (e) => {
-          focusOnSiblingWhenComplete(e);
+          focusOnSiblingWhenComplete(e, 2);
           clearErrors(["month", "day", "year"]);
         },
         onBlur: (e) =>

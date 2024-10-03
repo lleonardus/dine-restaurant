@@ -1,4 +1,7 @@
-import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
+import {
+  focusOnPreviousSiblingWhenEmpty,
+  focusOnSiblingWhenComplete,
+} from "./utils/inputFunctions";
 import { twoDigitsNumberFormatter } from "./utils/formatters";
 
 export function HourInput({
@@ -13,6 +16,7 @@ export function HourInput({
       id="hour"
       placeholder="09"
       type="number"
+      onKeyDown={focusOnPreviousSiblingWhenEmpty}
       {...register("hour", {
         required: "This field is incomplete",
         min: {

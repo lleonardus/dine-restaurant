@@ -1,4 +1,7 @@
-import { focusOnSiblingWhenComplete } from "./utils/inputFunctions";
+import {
+  focusOnPreviousSiblingWhenEmpty,
+  focusOnSiblingWhenComplete,
+} from "./utils/inputFunctions";
 
 export function YearInput({ currentDate, register, dateError, clearErrors }) {
   const year = currentDate.getFullYear();
@@ -6,9 +9,8 @@ export function YearInput({ currentDate, register, dateError, clearErrors }) {
   return (
     <input
       placeholder="YYYY"
-      min={year}
-      max={year + 1}
       type="number"
+      onKeyDown={focusOnPreviousSiblingWhenEmpty}
       {...register("year", {
         required: "This field is incomplete",
         min: {
@@ -20,7 +22,7 @@ export function YearInput({ currentDate, register, dateError, clearErrors }) {
           message: "invalid date",
         },
         onChange: (e) => {
-          focusOnSiblingWhenComplete(e);
+          focusOnSiblingWhenComplete(e, 4);
           clearErrors(["month", "day", "year"]);
         },
       })}
