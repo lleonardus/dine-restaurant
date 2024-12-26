@@ -37,3 +37,26 @@ $ npm run dev
 ```
 
 Após esse processo, o App vai estar rodando em **http://localhost:5173**
+
+## 📸 Screenshots
+
+### 🖥️ Desktop
+
+![Desktop 1](docs/images/desktop-1.png)
+![Desktop 2](docs/images/desktop-2.png)
+![Desktop 3](docs/images/desktop-3.png)
+![Desktop 4](docs/images/desktop-4.png)
+![Desktop 5](docs/images/desktop-5.png)
+![Desktop 6](docs/images/desktop-6.png)
+
+### 📱 Mobile
+
+![Mobile 1](docs/images/mobile-1.png)
+![Mobile 2](docs/images/mobile-2.png)
+![Mobile 3](docs/images/mobile-3.png)
+![Mobile 4](docs/images/mobile-4.png)
+![Mobile 5](docs/images/mobile-5.png)
+![Mobile 6](docs/images/mobile-6.png)
+![Mobile 7](docs/images/mobile-7.png)
+![Mobile 8](docs/images/mobile-8.png)
+![Mobile 9](docs/images/mobile-9.png)
